@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Documentation Page</title>
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target=".nav-bar">
+    <nav class="nav-bar" id="navbar">
+      <header id="main-header">Progressive web apps (PWAs)</header>
+      <ul id="nav-list" class="nav-list">
+        <li>
+          <a
+            href="#Introduction"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-red"
+            >Introduction</a
+          >
+        </li>
+        <li>
+          <a
+            href="#Progressive_web_app_structure"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-blue"
+            >Progressive web app structure</a
+          >
+        </li>
+        <li>
+          <a
+            href="#Understanding_the_building_blocks_of_responsive_design"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-green"
+            >Understanding the building blocks of responsive design</a
+          >
+        </li>
+        <li>
+          <a
+            href="#How_to_make_PWAs_work_offline_using_service_workers"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-pink"
+            >How to make PWAs work offline using service workers</a
+          >
+        </li>
+        <li>
+          <a
+            href="#How_to_make_PWAs_installable"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-Yellow"
+            >How to make PWAs installable</a
+          >
+        </li>
+        <li>
+          <a
+            href="#How_to_make_PWAs_re-engageable"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-red"
+            >How to make PWAs re-engageable</a
+          >
+        </li>
+        <li>
+          <a
+            href="#How_to_enable_progressive_loading"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-blue"
+            >How to enable progressive loading</a
+          >
+        </li>
+        <li>
+          <a
+            href="#How_to_build_mobile_first_PWAs"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-green"
+            >How to build mobile first PWAs</a
+          >
+        </li>
+        <li>
+          <a
+            href="#Using_Service_Workers"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-pink"
+            >Using service workers</a
+          >
+        </li>
+        <li>
+          <a
+            href="#Using_Client-side_storage"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-yellow"
+            >Using client-side storage</a
+          >
+        </li>
+        <li class="list-item">
+          <a
+            href="#Using_the_Notifications_API"
+            class="nav-link list-group-item list-group-item-action"
+            id="bg-red"
+            >Using the Notifications API</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div
+      data-bs-spy="scroll"
+      data-bs-target="#nav-list"
+      data-bs-offset="0"
+      class="scrollspy-example container"
+      tabindex="0"
+    >
+      <main id="main-doc">
+        <section class="main-section" id="Introduction">
+          <header class="header">Introduction</header>
+          <article>
+            <p><b>What is a Progressive Web App?</b></p>
+            <p>
+              PWAs are web apps developed using a number of specific
+              technologies and standard patterns to allow them to take advantage
+              of both web and native app features. For example, web apps are
+              more discoverable than native apps; it's a lot easier and faster
+              to visit a website than to install an application, and you can
+              also share web apps by sending a link.
+            </p>
+            <p>
+              On the other hand, native apps are better integrated with the
+              operating system and therefore offer a more seamless experience
+              for the users. You can install a native app so that it works
+              offline, and users love tapping their icons to easily access their
+              favorite apps, rather than navigating to it using a browser.
+            </p>
+            <p><b>What makes an app a PWA?</b></p>
+            <p>
+              As we hinted at above, PWAs are not created with a single
+              technology. They represent a new philosophy for building web apps,
+              involving some specific patterns, APIs, and other features. It's
+              not that obvious if a web app is a PWA or not from first glance.
+              An app could be considered a PWA when it meets certain
+              requirements, or implements a set of given features: works
+              offline, is installable, is easy to synchronize, can send push
+              notifications, etc.
+            </p>
+            <p>
+              In addition, there are tools to measure how complete (as a
+              percentage) a web app is, such as Lighthouse. By implementing
+              various technological advantages, we can make an app more
+              progressive, thus ending up with a higher Lighthouse score. But
+              this is only a rough indicator.
+            </p>
+            <p>
+              There are some key principles a web app should try to observe to
+              be identified as a PWA. It should be:
+            </p>
+            <ul class="section-list">
+              <li>
+                <p>
+                  <u>Discoverable</u>, so the contents can be found through
+                  search engines.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <u>Installable</u>, so it can be available on the device's
+                  home screen or app launcher.
+                </p>
+              </li>
+              <li>
+                <p><u>Linkable</u>, so you can share it by sending a URL.</p>
+              </li>
+              <li>
+                <p>
+                  <u>Network independent</u>, so it works offline or with a poor
+                  network connection.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <u>Progressively enhanced</u>, so it's still usable on a basic
+                  level on older browsers, but fully-functional on the latest
+                  ones.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <u>Re-engageable</u>, so it's able to send notifications
+                  whenever there's new content available.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <u>Responsively designed</u>, so it's usable on any device
+                  with a screen and a browser—mobile phones, tablets, laptops,
+                  TVs, refrigerators, etc.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <u>Secure</u>, so the connections between the user, the app,
+                  and your server are secured against any third parties trying
+                  to get access to sensitive data.
+                </p>
+              </li>
+            </ul>
+            <p>
+              Offering these features and making use of all the advantages
+              offered by web applications can create a compelling, highly
+              flexible offering for your users and customers.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="Progressive_web_app_structure">
+          <header class="header">Progressive web app structure</header>
+          <article>
+            <p>
+              Now that we know the theory behind PWAs, let's look at the
+              recommended structure of an actual app. We will start with
+              analyzing the js13kPWA application, why it is built that way, and
+              what benefits it brings.
+            </p>
+
+            <p><b>Architecture of an app</b></p>
+            <p>
+              There are two main, different approaches to rendering a website —
+              on the server or on the client. They both have their advantages
+              and disadvantages, and you can mix the two approaches to some
+              degree.
+            </p>
+            <ul class="section-list">
+              <li>
+                <p>
+                  Server-side rendering (SSR) means a website is rendered on the
+                  server, so it offers quicker first load, but navigating
+                  between pages requires downloading new HTML content. It works
+                  great across browsers, but it suffers in terms of time
+                  navigating between pages and therefore general perceived
+                  performance — loading a page requires a new round trip to the
+                  server.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Client-side rendering (CSR) allows the website to be updated
+                  in the browser almost instantly when navigating to different
+                  pages, but requires more of an initial download hit and extra
+                  rendering on the client at the beginning. The website is
+                  slower on an initial visit, but can be faster to navigate.
+                </p>
+              </li>
+            </ul>
+
+            <p>
+              Mixing SSR with CSR can lead to the best results — you can render
+              a website on the server, cache its contents, and then update the
+              rendering on the client-side as and when needed. The first page
+              load is quick because of the SSR, and the navigation between pages
+              is smooth because the client can re-render the page with only the
+              parts that have changed.
+            </p>
+
+            <p>
+              PWAs can be built using any approach you like, but some will work
+              better than the others. The most popular approach is the "app
+              shell" concept, which mixes SSR and CSR in exactly the way
+              described above, and in addition follows the "offline first"
+              methodology which we will explain in detail in upcoming articles
+              and use in our example application. There is also a new approach
+              involving the Streams API, which we'll mention briefly.
+            </p>
+            <p><b>Structure of our example application</b></p>
+            <p>
+              The js13kPWA website structure is quite simple: it consists of a
+              single HTML file (index.html) with basic CSS styling (style.css),
+              and a few images, scripts, and fonts. The folder structure looks
+              like this:
+            </p>
+            <img
+              src="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/App_structure/js13kpwa-directory.png"
+            />
+            <br />
+            <br />
+            <p style="font-size: 125%"><b>The HTML</b></p>
+            <p>
+              From the HTML point of view, the app shell is everything outside
+              the content section:
+            </p>
+            <pre><code>&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html lang=&#x22;en&#x22;&#x3E;
+&#x3C;head&#x3E;
+  &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
+  &#x3C;title&#x3E;js13kGames A-Frame entries&#x3C;/title&#x3E;
+  &#x3C;meta name=&#x22;description&#x22; content=&#x22;A list of A-Frame entries submitted to the js13kGames 2017 competition, used as an example for the MDN articles about Progressive Web Apps.&#x22;&#x3E;
+  &#x3C;meta name=&#x22;author&#x22; content=&#x22;end3r&#x22;&#x3E;
+  &#x3C;meta name=&#x22;theme-color&#x22; content=&#x22;#B12A34&#x22;&#x3E;
+  &#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width, initial-scale=1&#x22;&#x3E;
+  &#x3C;meta property=&#x22;og:image&#x22; content=&#x22;icons/icon-512.png&#x22;&#x3E;
+  &#x3C;link rel=&#x22;icon&#x22; href=&#x22;favicon.ico&#x22;&#x3E;
+  &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;style.css&#x22;&#x3E;
+  &#x3C;link rel=&#x22;manifest&#x22; href=&#x22;js13kpwa.webmanifest&#x22;&#x3E;
+  &#x3C;script src=&#x22;data/games.js&#x22; defer&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;app.js&#x22; defer&#x3E;&#x3C;/script&#x3E;
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+&#x3C;header&#x3E;
+  &#x3C;p&#x3E;&#x3C;a class=&#x22;logo&#x22; href=&#x22;http://js13kgames.com&#x22;&#x3E;&#x3C;img src=&#x22;img/js13kgames.png&#x22; alt=&#x22;js13kGames&#x22;&#x3E;&#x3C;/a&#x3E;&#x3C;/p&#x3E;
+&#x3C;/header&#x3E;
+&#x3C;main&#x3E;
+  &#x3C;h1&#x3E;js13kGames A-Frame entries&#x3C;/h1&#x3E;
+  &#x3C;p class=&#x22;description&#x22;&#x3E;List of games submitted to the &#x3C;a href=&#x22;http://js13kgames.com/aframe&#x22;&#x3E;A-Frame category&#x3C;/a&#x3E; in the &#x3C;a href=&#x22;http://2017.js13kgames.com&#x22;&#x3E;js13kGames 2017&#x3C;/a&#x3E; competition. You can &#x3C;a href=&#x22;https://github.com/mdn/pwa-examples/blob/master/js13kpwa&#x22;&#x3E;fork js13kPWA on GitHub&#x3C;/a&#x3E; to check its source code.&#x3C;/p&#x3E;
+  &#x3C;button id=&#x22;notifications&#x22;&#x3E;Request dummy notifications&#x3C;/button&#x3E;
+  &#x3C;section id=&#x22;content&#x22;&#x3E;
+    // Content inserted in here
+  &#x3C;/section&#x3E;
+&#x3C;/main&#x3E;
+&#x3C;footer&#x3E;
+  &#x3C;p&#x3E;&#xA9; js13kGames 2012-2018, created and maintained by &#x3C;a href=&#x22;http://end3r.com&#x22;&#x3E;Andrzej Mazur&#x3C;/a&#x3E; from &#x3C;a href=&#x22;http://enclavegames.com&#x22;&#x3E;Enclave Games&#x3C;/a&#x3E;.&#x3C;/p&#x3E;
+&#x3C;/footer&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;</code></pre>
+          </article>
+        </section>
+
+        <section
+          class="main-section"
+          id="Understanding_the_building_blocks_of_responsive_design"
+        >
+          <header class="header">
+            Understanding the building blocks of responsive design
+          </header>
+          <article>
+            <p>
+              In this article we will discuss the main essential components of
+              responsive design, with some links to further information where
+              necessary.
+            </p>
+            <p>
+              For Web developers, it is now fairly common to be called upon to
+              create a Web site or app that changes its user interface depending
+              on the browser or device accessing the site to provide an
+              optimized experience. One approach to this is to create different
+              versions of your site/app for different platforms or browsers and
+              serve them appropriately after detecting which browser or platform
+              is looking at your site. But this is increasingly inefficient:
+              browser sniffing is inherently error prone, and maintaining
+              multiple copies of your code can turn out to be a nightmare.
+            </p>
+            <p><b>border-box sizing</b></p>
+            <p>
+              The padding does not affect the overall width and height of the
+              containers because we have set the box-sizing of all elements to
+              border-box:
+            </p>
+            <pre>
+  <code>*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+  </code>
+</pre>
+          </article>
+        </section>
+        <section
+          class="main-section"
+          id="How_to_make_PWAs_work_offline_using_service_workers"
+        >
+          <header class="header">
+            How to make PWAs work offline using service workers
+          </header>
+          <article>
+            <p>
+              Now that we've seen what the structure of js13kPWA looks like and
+              have seen the basic shell up and running, let's look at how the
+              offline capabilities using Service Worker are implemented. In this
+              article, we look at how it is used in our js13kPWA example (see
+              the source code also). We examine how to add offline functionality
+            </p>
+            <p><b>Service workers explained</b></p>
+            <p>
+              Service Workers are a virtual proxy between the browser and the
+              network. They finally fix issues that front-end developers have
+              struggled with for years — most notably how to properly cache the
+              assets of a website and make them available when the user's device
+              is offline.
+            </p>
+            <p>
+              They run on a separate thread from the main JavaScript code of our
+              page, and don't have any access to the DOM structure. This
+              introduces a different approach from traditional web programming —
+              the API is non-blocking, and can send and receive communication
+              between different contexts. You are able to give a Service Worker
+              something to work on, and receive the result whenever it is ready
+              using a Promise-based approach.
+            </p>
+            <p><b>Registering the Service Worker</b></p>
+            <p>
+              We'll start by looking at the code that registers a new Service
+              Worker, in the app.js file:
+            </p>
+            <pre>
+  <code>if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./pwa-examples/js13kpwa/sw.js');
+};</code>
+</pre>
+            <p>
+              If the service worker API is supported in the browser, it is
+              registered against the site using the
+              ServiceWorkerContainer.register() method. Its contents reside in
+              the sw.js file, and can be executed after the registration is
+              successful. It's the only piece of Service Worker code that sits
+              inside the app.js file; everything else that is Service
+              Worker-specific is written in the sw.js file itself.
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="How_to_make_PWAs_installable">
+          <header class="header">How to make PWAs installable</header>
+          <article>
+            <p>
+              In the last article, we read about how the example application,
+              js13kPWA, works offline thanks to its service worker, but we can
+              go even further and allow users to install the web app on mobile
+              and desktop browsers that support doing so. The installed web app
+              can then be launched by users just as if it were any native app.
+              This article explains how to achieve this using the web app's
+              manifest.
+            </p>
+            <p><b>Requirements</b></p>
+            <p>
+              To make the web site installable, it needs the following things in
+              place:
+            </p>
+            <ul>
+              <li><p>A web manifest, with the correct fields filled in</p></li>
+              <li>
+                <p>The web site to be served from a secure (HTTPS) domain</p>
+              </li>
+              <li><p>An icon to represent the app on the device</p></li>
+              <li>
+                <p>
+                  A service worker registered, to allow the app to work offline
+                  (this is required only by Chrome for Android currently)
+                </p>
+              </li>
+            </ul>
+            <p><b>The manifest file</b></p>
+            <p>
+              The key element is a web manifest file, which lists all the
+              information about the website in a JSON format.
+            </p>
+            <p>
+              It usually resides in the root folder of a web app. It contains
+              useful information, such as the app's title, paths to
+              different-sized icons that can be used to represent the app on an
+              OS (such as an icon on the home screen, an entry in the Start
+              menu, or an icon on the desktop), and a background color to use in
+              loading or splash screens. This information is needed for the
+              browser to present the web app properly during the installation
+              process, as well as within the device's app-launching interface,
+              such as the home screen of a mobile device.
+            </p>
+            <p>
+              The js13kpwa.webmanifest file of the js13kPWA web app is included
+              in the &#x3C;head&#x3E; block of the index.html file using the
+              following line of code:
+            </p>
+            <pre>
+  <code>&#x3C;link rel=&#x22;manifest&#x22; href=&#x22;js13kpwa.webmanifest&#x22;&#x3E;</code>
+</pre>
+          </article>
+        </section>
+        <section class="main-section" id="How_to_make_PWAs_re-engageable">
+          <header class="header">How to make PWAs re-engageable</header>
+          <article>
+            <p>
+              Having the ability to cache the contents of an app to work offline
+              is a great feature. Allowing the user to install the web app on
+              their home screen is even better. But instead of relying only on
+              user actions, we can do more, using push messages and
+              notifications to automatically re-engage and deliver new content
+              whenever it is available.
+            </p>
+            <p><b>Notifications</b></p>
+            <p>
+              Let's start with notifications — they can work without push, but
+              are very useful when combined with them. Let's look at them in
+              isolation to begin with.
+            </p>
+            <p><b>Request permission</b></p>
+            <p>
+              To show a notification, we have to request permission to do so
+              first. Instead of showing the notification immediately though,
+              best practice dictates that we should show the popup when the user
+              requests it by clicking on a button:
+            </p>
+
+            <pre>
+<code>
+const button = document.getElementById('notifications');
+button.addEventListener('click', () => {
+  Notification.requestPermission().then((result) => {
+    if (result === 'granted') {
+      randomNotification();
+    }
+  });
+})
+</code>
+</pre>
+          </article>
+        </section>
+        <section class="main-section" id="How_to_enable_progressive_loading">
+          <header class="header">How to enable progressive loading</header>
+          <article>
+            <p>
+              In previous articles we covered APIs that help us make our
+              js13kPWA example a Progressive Web App: Service Workers, Web
+              Manifests, Notifications and Push. In this article we will go even
+              further and improve the performance of the app by progressively
+              loading its resources.
+            </p>
+            <p><b>Render-blocking resources</b></p>
+            <p>
+              Bundling is a problem, because the browser has to load the HTML,
+              CSS, and JavaScript before it can paint their rendered results
+              onto the screen. During the few seconds between initial website
+              access and completion of loading, the user sees a blank page,
+              which is a bad experience.
+            </p>
+            <p>
+              To fix that we can, for example, add defer to JavaScript files:
+            </p>
+            <pre>
+ <code>
+&#x3C;script src=&#x22;app.js&#x22; defer&#x3E;&#x3C;/script&#x3E;
+ </code>
+  </pre>
+            <p>
+              They will be downloaded and executed after the document itself has
+              been parsed, so it won't block rendering the HTML structure. We
+              can also split css files and add media types to them:
+            </p>
+            <pre>
+ <code>
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;style.css&#x22;&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;print.css&#x22; media=&#x22;print&#x22;&#x3E;
+ </code>
+  </pre>
+          </article>
+        </section>
+
+        <section class="main-section" id="How_to_build_mobile_first_PWAs">
+          <header class="header">How to build mobile first PWAs</header>
+          <article>
+            <p><b>Mobile first</b></p>
+            <p>
+              This article provides a guide to implementing a website layout
+              that follows the principle of mobile first. This means creating a
+              layout where the default configuration is for narrow screen/mobile
+              devices, and layout features for wider viewports are then layered
+              on top of that default.
+            </p>
+            <p><b>First things first — mobile as a default</b></p>
+            <p>
+              You may think that concentrating on the mobile experience first
+              sounds pointless, as we are more used to dealing with desktop
+              sites, and we surely need to consider the full gamut of features
+              for the overall experience across desktop, mobile, etc., before
+              then paring it down to a mobile experience that is simpler, more
+              streamlined, or whatever. This rings true, yes, but in our
+              experience mobile first is more about having the mobile
+              implementation as a default layer to build on.
+            </p>
+            <p>
+              We consider the overall experience during the planning stage, look
+              at what subset of features will be available on mobile, desktop,
+              etc. in tandem and how they will be implemented. Then at
+              implementation stage, we present the mobile layout and
+              functionality as the default configuration provided, before
+              additional information is loaded on top of that, whenever
+              appropriate. This means that mobiles (often the target devices
+              with the least available memory, bandwidth or processing power
+              available) can be given an experience suitable for them as quickly
+              as possible, and as free as possible of extraneous information.
+              For example:
+            </p>
+            <ul>
+              <li>
+                <p>
+                  If you are serving different styling and layout information
+                  for different viewport sizes, etc., it makes more sense to
+                  include the narrow screen/mobile styling as the default
+                  styling before any media queries are encountered, rather than
+                  having desktop/wider screen styling first. This way, mobile
+                  devices don't have to load assets and other information twice.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If you are using mechanisms like feature detection and
+                  matchMedia to conditionally load scripting functionality
+                  depending on viewport size, feature support, etc., you should
+                  just load the very basics that pretty much all browsers will
+                  need first, then progressively enhance browsers higher up the
+                  food chain.
+                </p>
+              </li>
+            </ul>
+            <p>
+              <b>Mobile constraints</b>
+            </p>
+            <p>
+              We have already mentioned the fact that mobiles generally have
+              less memory, processing power and bandwidth than other devices
+              (although bear in mind that smart TVs are also generally pretty
+              low powered.) They also have less viewport size available.
+              Therefore, as well as splitting content into different views, and
+              simplifying the interface and content on each view of your
+              application for mobile as much as possible, it is also a good idea
+              to not include visual effects such as shadows, animations, and
+              gradients. You should at least consider it as an option,
+              especially if you are experiencing slow or laggy performance when
+              your application is running on mobile.
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="Using_Service_Workers">
+          <header class="header">Using Service Workers</header>
+          <article>
+            <p>
+              This article provides information on getting started with service
+              workers, including basic architecture, registering a service
+              worker, the install and activation process for a new service
+              worker, updating your service worker, cache control and custom
+              responses, all in the context of a simple app with offline
+              functionality.
+            </p>
+            <p><b>The premise of service workers</b></p>
+            <p>
+              One overriding problem that web users have suffered with for years
+              is loss of connectivity. The best web app in the world will
+              provide a terrible user experience if you can't download it. There
+              have been various attempts to create technologies to solve this
+              problem, and some of the issues have been solved. But the
+              overriding problem is that there still isn't a good overall
+              control mechanism for asset caching and custom network requests.
+            </p>
+            <p>
+              The previous attempt, AppCache, seemed to be a good idea because
+              it allowed you to specify assets to cache really easily. However,
+              it made many assumptions about what you were trying to do and then
+              broke horribly when your app didn't follow those assumptions
+              exactly. Read Jake Archibald's (unfortunately-titled but
+              well-written) Application Cache is a Douchebag for more details.
+            </p>
+
+            <p>
+              Service workers should finally fix these issues. Service worker
+              syntax is more complex than that of AppCache, but the trade-off is
+              that you can use JavaScript to control your AppCache-implied
+              behaviors with a fine degree of granularity, allowing you to
+              handle this problem and many more. Using a Service worker you can
+              easily set an app up to use cached assets first, thus providing a
+              default experience even when offline, before then getting more
+              data from the network (commonly known as Offline First). This is
+              already available with native apps, which is one of the main
+              reasons native apps are often chosen over web apps.
+            </p>
+            <p></p>
+          </article>
+        </section>
+        <section class="main-section" id="Using_Client-side_storage">
+          <header class="header">Using client-side storage</header>
+          <article>
+            <p><b>Client-side storage</b></p>
+            <p>
+              Modern web browsers support a number of ways for web sites to
+              store data on the user's computer — with the user's permission —
+              then retrieve it when necessary. This lets you persist data for
+              long-term storage, save sites or documents for offline use, retain
+              user-specific settings for your site, and more. This article
+              explains the very basics of how these work.
+            </p>
+            <table>
+              <tr>
+                <td><b>Prerequisites:</b></td>
+                <td>
+                  JavaScript basics (see first steps, building blocks,
+                  JavaScript objects), the basics of Client-side APIs
+                </td>
+              </tr>
+              <tr>
+                <td><b>Objective:</b></td>
+                <td>
+                  JTo learn how to use client-side storage APIs to store
+                  application data.
+                </td>
+              </tr>
+            </table>
+            <br />
+
+            <p><b>Client-side storage?</b></p>
+            <p>
+              Elsewhere in the MDN learning area we talked about the difference
+              between static sites and dynamic sites. Most major modern web
+              sites are dynamic — they store data on the server using some kind
+              of database (server-side storage), then run server-side code to
+              retrieve needed data, insert it into static page templates, and
+              serve the resulting HTML to the client to be displayed by the
+              user's browser.
+            </p>
+
+            <p>
+              Often client-side and server-side storage are used together. For
+              example, you could download a batch of music files (perhaps used
+              by a web game or music player application), store them inside a
+              client-side database, and play them as needed. The user would only
+              have to download the music files once — on subsequent visits they
+              would be retrieved from the database instead.
+            </p>
+            <p><b>Old school: Cookies</b></p>
+            <p>
+              The concept of client-side storage has been around for a long
+              time. Since the early days of the web, sites have used cookies to
+              store information to personalize user experience on websites.
+              They're the earliest form of client-side storage commonly used on
+              the web.
+            </p>
+            <p>
+              These days, there are easier mechanisms available for storing
+              client-side data, therefore we won't be teaching you how to use
+              cookies in this article. However, this does not mean cookies are
+              completely useless on the modern-day web — they are still used
+              commonly to store data related to user personalization and state,
+              e.g. session IDs and access tokens. For more information on
+              cookies see our Using HTTP cookies article.
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="Using_the_Notifications_API">
+          <header class="header">Using the Notifications API</header>
+          <article>
+            <p>
+              The Notifications API lets a web page or app send notifications
+              that are displayed outside the page at the system level; this lets
+              web apps send information to a user even if the application is
+              idle or in the background. This article looks at the basics of
+              using this API in your own apps.
+            </p>
+            <p>
+              Typically, system notifications refer to the operating system's
+              standard notification mechanism: think for example of how a
+              typical desktop system or mobile device broadcasts notifications.
+            </p>
+            <img
+              src="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API/android-notification.png"
+            />
+            <br />
+            <br />
+            <p>
+              The system notification system will vary of course by platform and
+              browser, but this is OK, and the Notifications API is written to
+              be general enough for compatibility with most system notification
+              systems.
+            </p>
+
+            <p><b> Getting permission</b></p>
+
+            <p>
+              If permission to display notifications hasn't been granted yet,
+              the application needs to use the Notification.requestPermission()
+              method to request this from the user. In its simplest form, we
+              just include the following:
+            </p>
+
+            <pre>
+ <code>
+Notification.requestPermission().then((result) => {
+  console.log(result);
+});
+ </code>
+  </pre>
+            <p>
+              This uses the promise-based version of the method. If you want to
+              support older versions, you might have to use the older callback
+              version, which looks like this:
+            </p>
+            <pre>
+ <code>
+ Notification.requestPermission();
+ </code>
+  </pre>
+            <p>
+              The callback version optionally accepts a callback function that
+              is called once the user has responded to the request to display
+              permissions.
+            </p>
+          </article>
+        </section>
+        <hr />
+        <p>
+          This Documetation page referenced by MDN Progressive Web Apps see
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+            >original.</a
+          >
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

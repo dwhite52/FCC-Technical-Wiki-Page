@@ -1,0 +1,166 @@
+html {
+    height: 100%;
+}
+body{
+ 
+  box-sizing: border-box;
+  display:flex;
+justify-content:space-around;
+ 
+}
+.nav-bar{
+  height:100%;
+  width:350px;
+  left: 0;
+   top:0;
+    position: fixed;
+  border-right:2px solid gray;
+  
+}
+#main-header{
+   position: relative;
+   left:30px;
+   top:0;
+   z-index: 1;
+   
+}
+.nav-list{
+  margin:10px 0 10px 0;
+  display:block;
+  width:auto;
+  height:80%;
+  top:0;
+list-style-type:none;
+  overflow-y: scroll;
+}
+.nav-link{
+   margin:10px 0 10px 0;
+  width:100%;
+}
+#bg-red{
+  border-left:5px solid red;
+
+}
+#bg-blue{
+  border-left:5px solid rgb(14, 170, 242);
+
+}
+#bg-green{
+  border-left:5px solid green;
+
+}
+#bg-pink{
+  border-left:5px solid rgb(228, 16, 221);
+
+}
+#bg-yellow{
+  border-left:5px solid rgba(194, 165, 0, 0.98);
+
+}
+/***psuedo clases/***/
+.nav-link.active{
+  background-color:red;
+  border:red;
+
+}
+#bg-red.active{
+  background-color:red;
+  border:red;
+
+}
+
+#bg-blue.active{
+  background-color:rgb(14, 170, 242);
+  border:rgb(14, 170, 242);
+
+}
+#bg-green.active{
+  background-color:green;
+  border:green;
+
+}
+#bg-pink.active{
+  background-color:rgb(228, 16, 221);
+  border:rgb(228, 16, 221);
+
+}
+#bg-yellow.active{
+  background-color:rgba(194, 165, 0, 0.98);
+  border:rgba(194, 165, 0, 0.98);
+
+}
+/***psuedo clases finish/***/
+#main-header{
+  font-size:230%;
+   font-weight:bold;
+   font-family:arial;
+}
+#main-doc{
+  margin-left:335px;
+  display:inline-block;
+  margin-top:10px;
+
+}
+.header{
+  font-size:150%;
+  font-weight:bold;
+}
+
+code{
+  display:block;
+  text-align:left;
+  margin-left:20px; 
+  word-break:normal;
+  white-space: pre-wrap;
+  line-height:2;
+  background-color:beige;
+}
+table tr td{
+  position:relative;
+  border:1px solid black;
+  font-family:consolas;
+}
+@media(max-width:600px){
+body{
+  display:flex;
+  justify-content:space-even;
+  align-items:center;
+}
+.nav-bar {
+  display:block;
+  background-color:white;
+  height:320px;
+  width:100%;;
+   top:0;
+    position: fixed;
+    
+}
+  #main-header{
+   position: relative;
+   left:30px;
+   top:0;
+   z-index: -1;
+   
+}
+.nav-list{
+  background-color:white;
+  display:block;
+  width:auto;
+  height:70%;
+  top:0;
+  
+list-style-type:none;
+  overflow-y: scroll;}
+  .nav-link{
+  
+  width:100%;
+}
+  #main-doc{
+    position:relative;
+    margin-left:0;
+    padding-top:20px;
+  margin-top:330px;
+  display:block;
+  z-index:-1;
+}
+}
